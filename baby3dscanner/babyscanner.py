@@ -162,3 +162,15 @@ class BabyScannerApp():
         self.start_page.label.config(text="done - idle")
         self.start_page.update_idletasks()
         count = 0
+
+def main():
+    app = BabyScannerApp()
+    try:
+        app.userinterface.mainloop()
+
+    except:
+        app.cam.stop()
+        quit()
+
+if __name__ == "__main__":
+    main()
