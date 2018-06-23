@@ -3,7 +3,7 @@ import numpy as np
 import math
 import os
 import userinterface as gui
-#import imageprocessor as scan
+
 import stepper as step
 import camera as cam
 

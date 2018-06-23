@@ -12,6 +12,7 @@ import cv2
 
 LARGE_FONT = ("Verdana", 12)
 
+# This class makes a container for multiple pages for the UI
 class UserInterface(tk.Tk):
     
     def __init__(self, master):
