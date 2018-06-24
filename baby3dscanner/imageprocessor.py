@@ -39,7 +39,7 @@ class ImageProcessor:
         z = [0] * self.size
         y, z = self.__calculateYZ(x_laser, y_laser, a, b)
 
-        return y, z
+        return x_frame, y, z
 
     def __performThreshold(self, image):
         cv_img = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
