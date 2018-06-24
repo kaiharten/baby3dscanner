@@ -98,9 +98,14 @@ class ImageProcessor:
 
             # D =  h / (tan(pfc & rpc + ro))
             tan_theta = math.tan(theta)
+
+            # calculate z in millimeters
             z[k] = (self.distance_laser_surface - (self.distance_cam_laser/tan_theta)) * 10
             if z[k] <= 0:
                 z[k] = 0
+
+            # Calculate y in millimeters
+            y[k] = (x[k] * (56/1280)) * 10
         
         return y, z
     
