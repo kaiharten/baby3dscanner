@@ -96,10 +96,11 @@ class BabyScannerApp():
             ret, img = cv2.threshold(cv_img, 0, 255, cv2.THRESH_OTSU)
 
             prev = 5
-            t = [0] * 256
-            t2 = [0] * 256
-            t3 = [0] * 256
-            t4 = [0] * 256
+            y_crd_laser = [0] * 256
+            x_crd_laser = [0] * 256
+            
+            x_cord_base = [0] * 256
+            pfc = [0] * 256
             
             j = 0
             for i in range(0, 1280, 5):
@@ -114,15 +115,15 @@ class BabyScannerApp():
                 x_val_e = -1 * np.median(x_val) # this is y
                 y_val_e = np.median(y_val)
                 
-                t[j] = x_val_e
-                t2[j] = (y_val_e + i)
+                y_crd_laser[j] = x_val_e
+                x_crd_laser[j] = (y_val_e + i)
                 j = j + 1
                 
-            y_1 = t[0]
-            y_2 = t[255]
+            y_1 = y_crd_laser[0]
+            y_2 = y_crd_laser[255]
             
-            x_1 = t2[0]
-            x_2 = t2[255]
+            x_1 = x_crd_laser[0]
+            x_2 = x_crd_laser[255]
             
             #y = ax + b 
             a = (y_2 - y_1)/(x_2 - x_1)
@@ -133,13 +134,13 @@ class BabyScannerApp():
             # subtract baseline from actual white pixel line
             for k in range(0, 256, 1):
                 t5[k] = k
-                t3[k] = (a * t2[k]) + b
-                t4[k] = t[k] - t3[k]
+                x_cord_base[k] = (a * x_crd_laser[k]) + b
+                pfc[k] = y_crd_laser[k] - x_cord_base[k]
                 
             z = [0] * 256
             
             for h in range(0, 256, 1):
-                theta = 0.0014 * abs(t4[h]) + 0.2686
+                theta = 0.0014 * abs(pfc[h]) + 0.2686
                 tan_theta = math.tan(theta)
                 z[h] = (46.5 - (13/tan_theta)) * 10
                 if z[h] <= 0:
@@ -147,7 +148,7 @@ class BabyScannerApp():
                 else:
                     depth = z[h]
                 
-                y_in_mm = (t2[h] * (56/1280)) * 10
+                y_in_mm = (x_crd_laser[h] * (56/1280)) * 10
                 my_file.write(str(self.x[n]) + ',' + str(y_in_mm) + ',' + str(depth) + '\n')
                 
 
