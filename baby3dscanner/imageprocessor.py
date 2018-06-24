@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 import math
+import matplotlib.pyplot as plt
 
 # This class takes an image with a red laser line and 
 # calculates the height 
@@ -28,13 +29,15 @@ class ImageProcessor:
         x_laser, y_laser = self.__getLaserCoordinates(img)
 
         y1 = y_laser[0]
-        y2 = y_laser[255]
+        y2 = y_laser[254]
         x1 = x_laser[0]
-        x2 = x_laser[255]
+        x2 = x_laser[254]
 
         #y = ax + b
         a, b = self.__getLinearCoeff(y1, y2, x1, x2)
 
+        print (a)
+        print (b)
         y = [0] * self.size
         z = [0] * self.size
         y, z = self.__calculateYZ(x_laser, y_laser, a, b)
@@ -79,7 +82,7 @@ class ImageProcessor:
 
         return a, b
     
-    def __calculateYZ(self, x, y, a, b):
+    def __calculateYZ(self, x_laser, y_laser, a, b):
         base_line = [0] * self.size
         pfc = [0] * self.size
 
@@ -88,10 +91,10 @@ class ImageProcessor:
 
         for k in range(0, self.size, 1):
             #calculate baseline with coefficients
-            base_line[k] = (a * x[k]) + b
+            base_line[k] = (a * x_laser[k]) + b
 
             #subtract baseline from measured pixel line
-            pfc[k] = y[k] - base_line[k]
+            pfc[k] = y_laser[k] - base_line[k]
 
             # theta = rpp * pfc + ro
             theta = self.radians_per_pixel_pitch * abs(pfc[k]) + self.radian_offset
@@ -105,7 +108,26 @@ class ImageProcessor:
                 z[k] = 0
 
             # Calculate y in millimeters
-            y[k] = (x[k] * (56/1280)) * 10
+            y[k] = (x_laser[k] * (56/1280)) * 10
         
+        print (pfc[5])
+        print (pfc[15])
+
         return y, z
-    
+
+size = 256
+x = 0
+y = [0] * size
+z = [0] * size
+scanner = ImageProcessor()
+
+img = cv2.imread("img/line0.jpeg")
+x, y, z = scanner.getXYZ(img, 0)
+
+plt.subplot(212)
+plt.plot(y, z, 'ro')
+plt.xlabel('')
+plt.ylabel('Aantal pixels')
+plt.show()
+
+cv2.waitKey(0)
