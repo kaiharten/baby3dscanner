@@ -1,5 +1,6 @@
 import cv2
 import imageprocessor
+import matplotlib.pyplot as plt
 
 size = 256
 x = 0
