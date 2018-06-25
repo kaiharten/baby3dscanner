@@ -22,6 +22,8 @@ https://github.com/kaiharten/baby3dscanner
 * Het volledige systeem stand-alone draaien.
 
 ## Documentatie
+* [Getting Started - Systeemhandleiding](https://github.com/kaiharten/baby3dscanner/blob/master/docs/getting_started.md)
+* [Matlab Script Handleiding](https://github.com/kaiharten/baby3dscanner/blob/master/docs/matlab_script_gebruikshandleiding.pdf))
 * [Software Ontwerpbeschrijving](https://github.com/kaiharten/baby3dscanner/blob/master/docs/software_ontwerpbeschrijving.pdf)
 * [Hardware Ontwerpbeschrijving](https://github.com/kaiharten/baby3dscanner/blob/master/docs/hardware_ontwerpbeschrijving.pdf)
 * [Onderzoeksrapport Hoogtemetingen](https://github.com/kaiharten/baby3dscanner/blob/master/docs/onderzoeksrapport_hoogtemetingen.pdf)
