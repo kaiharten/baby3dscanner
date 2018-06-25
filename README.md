@@ -22,6 +22,7 @@ The IncuScan project started in 2018 at Rotterdam University of Applied Sciences
 ## Results
 <img src="docs/img/total_system.jpeg" width=400>
 <img src="docs/img/3d_plot.jpeg" width=400>
+<img src="docs/img/3d_scan.jpeg" width=400>
 <img src="docs/img/user_screen.jpeg" width=400>
 
 
