@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 # calculates the height 
 class ImageProcessor:
 
+    # Initializes the attributes
     def __init__(self, size = 256,
                 rpc = 0.0014,
                 ro = 0.2686,
@@ -19,6 +20,7 @@ class ImageProcessor:
         self.distance_cam_laser = d_cam_laser
         self.distance_laser_surface = d_laser_surface
 
+    # Returns the lists X, Y and Z after proceessing an image 
     def getXYZ(self, image, x_frame):
 
         x_laser = [0] * self.size
@@ -44,12 +46,14 @@ class ImageProcessor:
 
         return x_frame, y, z
 
+    # Private function to filter the image, returns a filtered image
     def __performThreshold(self, image):
         cv_img = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         ret, img = cv2.threshold(cv_img, 0, 255, cv2.THRESH_OTSU)
 
         return img
 
+    # Private function Takes an filtered_image and gets the coordinates of the laser line in the mage
     def __getLaserCoordinates(self, image):
         j = 0
         prev = 5
@@ -75,13 +79,14 @@ class ImageProcessor:
 
         return x_laser, y_laser
 
-    # gets coefficients from y = ax + b  to calculate baseline  
+    # Private function gets coefficients from y = ax + b  to calculate baseline  
     def __getLinearCoeff(self, y_1, y_2, x_1, x_2):
         a = (y_2 - y_1) /(x_2 - x_1)
         b = (y_1) - (a* x_1)
 
         return a, b
     
+    # Private function calculates every Z value per Y value based on the laser lines and coefficients
     def __calculateYZ(self, x_laser, y_laser, a, b):
         base_line = [0] * self.size
         pfc = [0] * self.size

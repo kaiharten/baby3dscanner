@@ -7,6 +7,8 @@ import threading
 # Use moveBack to move the scanner back to its start position
 
 class Stepper:
+
+    # Creates serial instance and opens port
     def __init__(self, port, baudrate=115200, timeout=2):
         self.com = serial.Serial(port=port, baudrate=baudrate,
         timeout=timeout, writeTimeout=timeout)
@@ -18,6 +20,7 @@ class Stepper:
 
         self.com.open()
 
+    # Moves the stepper from one side to the other side
     def moveStep(self):
 
         if not self.com.isOpen():
@@ -41,6 +44,7 @@ class Stepper:
         self.com.close()
         return msg
 
+    # Moves the stepper back home
     def moveBack(self):
         if not self.com.isOpen():
             self.com.open()
