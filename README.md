@@ -10,17 +10,21 @@ The IncuScan project started in 2018 at Rotterdam University of Applied Sciences
 * [Report height measurements NL](https://github.com/kaiharten/baby3dscanner/blob/master/docs/onderzoeksrapport_hoogtemetingen.pdf)
 * [Acceptance Test NL](https://github.com/kaiharten/baby3dscanner/blob/master/docs/acceptatietest.pdf)
 * [Requirements document NL](https://github.com/kaiharten/baby3dscanner/blob/master/docs/specificaties_requirements.pdf)
-* [G]
 
-## Results
-<img src="docs/img/total_system.jpeg" width=400>
-<img src="docs/img/3d_plot.jpeg" width=400>
-<img src="docs/img/user_screen.jpeg" width=400>
+
+
 ## Core Team
 * Kai Harten
 * Timothy Singowikromo
 * Jure Vidmar
 * Talha Koçak
+
+## Results
+<img src="docs/img/total_system.jpeg" width=400>
+<img src="docs/img/3d_plot.jpeg" width=400>
+<img src="docs/img/user_screen.jpeg" width=400>
+
+
 
 
 
