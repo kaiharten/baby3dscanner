@@ -7,22 +7,22 @@ Plug een ethernet cabel in de raspberry pi en verbindt via SSH of maak verbindin
 ### Activeer de camera
 Wanneer de raspberry pi opstart, moet dit weer opnieuw worden gedaan.
 
-'''sh
+```sh
 sudo modprobe bcm2835-v4l2
-'''
+```
 
 ### Positioneer het Scanblok
 Plaats de Raspberry Pi met Camera en Laser naar de zijkant van het frame aan de kant waar GEEN Touchscreen zit. Dit is de startpositie.
 
 ### Navigeer naar de map met het juiste python script
-'''sh
+```sh
 cd Documents/BSApp
-'''
+```
 
 ### Start het Python script
-'''sh
+```sh
 python3 babyscanner.py
-'''
+```
 
 ## De Applicatie
 
