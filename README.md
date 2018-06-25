@@ -4,10 +4,12 @@
 
 Het BabyScan project is gestart in 2017 aan de Hogeschool Rotterdam bij de opleiding Elektrotechniek in partnership met het Erasmus MC. Het doel is om een 3D beeld te genereren van een baby in een couveuse, zodat de groei kan worden bijgehouden. Na inspiratie te hebben gevonden in het FabScan PI project, was het idee gebeuren om iets soortgelijks te ontwerpen met een Raspberry Pi 3, Raspberry Pi Camera Module en een laser diode. De huidige versie is ook geschreven in python, arduino en matlab.
 
+https://github.com/kaiharten/baby3dscanner
+
 ## Status
 * Nauwkeurigheid lengte is 5mm
 * Nauwkeurigheid hoogte is 5mm
-* Stappenmotoren erg luid
+* Stappenmotoren erg luid.
 
 ## To Do
 * Stappenmotoraansturing optimaliseren, geruisloos maken. Wellicht met controllers van TMC Trinamic
@@ -37,9 +39,6 @@ Het BabyScan project is gestart in 2017 aan de Hogeschool Rotterdam bij de oplei
 <img src="docs/img/3d_plot.jpeg" width=400>
 <img src="docs/img/3d_scan.jpeg" width=400>
 <img src="docs/img/user_screen.jpeg" width=400>
-
-
-
 
 
 
